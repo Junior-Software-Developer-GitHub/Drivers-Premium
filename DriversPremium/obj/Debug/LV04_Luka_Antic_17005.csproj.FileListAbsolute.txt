@@ -1,0 +1,15 @@
+C:\C#\LV04_Luka_Antic_17005\LV04_Luka_Antic_17005\bin\Debug\LV04_Luka_Antic_17005.exe.config
+C:\C#\LV04_Luka_Antic_17005\LV04_Luka_Antic_17005\bin\Debug\LV04_Luka_Antic_17005.exe
+C:\C#\LV04_Luka_Antic_17005\LV04_Luka_Antic_17005\bin\Debug\LV04_Luka_Antic_17005.pdb
+C:\C#\LV04_Luka_Antic_17005\LV04_Luka_Antic_17005\bin\Debug\Osobe.dll
+C:\C#\LV04_Luka_Antic_17005\LV04_Luka_Antic_17005\bin\Debug\Osobe.pdb
+C:\C#\LV04_Luka_Antic_17005\LV04_Luka_Antic_17005\obj\Debug\LV04_Luka_Antic_17005.csprojAssemblyReference.cache
+C:\C#\LV04_Luka_Antic_17005\LV04_Luka_Antic_17005\obj\Debug\LV04_Luka_Antic_17005.Form1.resources
+C:\C#\LV04_Luka_Antic_17005\LV04_Luka_Antic_17005\obj\Debug\LV04_Luka_Antic_17005.Form2.resources
+C:\C#\LV04_Luka_Antic_17005\LV04_Luka_Antic_17005\obj\Debug\LV04_Luka_Antic_17005.Form3.resources
+C:\C#\LV04_Luka_Antic_17005\LV04_Luka_Antic_17005\obj\Debug\LV04_Luka_Antic_17005.Properties.Resources.resources
+C:\C#\LV04_Luka_Antic_17005\LV04_Luka_Antic_17005\obj\Debug\LV04_Luka_Antic_17005.csproj.GenerateResource.cache
+C:\C#\LV04_Luka_Antic_17005\LV04_Luka_Antic_17005\obj\Debug\LV04_Luka_Antic_17005.csproj.CoreCompileInputs.cache
+C:\C#\LV04_Luka_Antic_17005\LV04_Luka_Antic_17005\obj\Debug\LV04_Luka_Antic_17005.csproj.CopyComplete
+C:\C#\LV04_Luka_Antic_17005\LV04_Luka_Antic_17005\obj\Debug\LV04_Luka_Antic_17005.exe
+C:\C#\LV04_Luka_Antic_17005\LV04_Luka_Antic_17005\obj\Debug\LV04_Luka_Antic_17005.pdb

@@ -106,13 +106,13 @@
     <None Include="Resources\plus_icon-icons.com_70890.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Osobe\Persons.csproj">
-      <Project>{878c077e-5038-465c-9671-50ba5cf5c01f}</Project>
-      <Name>Persons</Name>
-    </ProjectReference>
+    <None Include="Resources\back.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\back.ico" />
+    <ProjectReference Include="..\Persons\Persons.csproj">
+      <Project>{88c38f11-0d3c-44c9-8a09-b93ce0c80a43}</Project>
+      <Name>Persons</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

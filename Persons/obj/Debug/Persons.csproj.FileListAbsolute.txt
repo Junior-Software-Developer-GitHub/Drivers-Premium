@@ -1,0 +1,6 @@
+C:\C#\Drivers Premium\Persons\bin\Debug\Persons.dll
+C:\C#\Drivers Premium\Persons\bin\Debug\Persons.pdb
+C:\C#\Drivers Premium\Persons\obj\Debug\Persons.csprojAssemblyReference.cache
+C:\C#\Drivers Premium\Persons\obj\Debug\Persons.csproj.CoreCompileInputs.cache
+C:\C#\Drivers Premium\Persons\obj\Debug\Persons.dll
+C:\C#\Drivers Premium\Persons\obj\Debug\Persons.pdb

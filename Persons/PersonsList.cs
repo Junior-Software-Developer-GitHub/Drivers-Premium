@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Persons
 {
-   public class PersonsList
+    public class PersonsList
     {
-       
+
         readonly List<Person> _personsList;
         private static PersonsList _instance = null;
 
@@ -27,7 +27,7 @@ namespace Persons
         {
             if (!Exists(p)) return false;
             _personsList.Remove(p);
-             return true;
+            return true;
         }
 
         public bool Exists(Person p) => (from person in _personsList

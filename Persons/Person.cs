@@ -8,7 +8,6 @@ namespace Persons
 {
     public class Person
     {
-
         String _firstName;
         String _lastName;
         String _placeOfIssue;
@@ -65,7 +64,7 @@ namespace Persons
             get => _placeOfIssue;
             set => _placeOfIssue = value;
         }
-        public String Gender 
+        public String Gender
         {
             get => _gender;
             set => _gender = value;
@@ -94,6 +93,6 @@ namespace Persons
 
             => (FirstName, LastName, DateOfBirth, Iss, Exp, DriverLicenseNumber, PlaceOfIssue, Gender, Categories, Prohibition, IssOfProhibition, ExpOfProhibition, Picture)
             = (firstName, lastName, dateOfBirth, iss, exp, driverLicenseNumber, placeOfIssue, gender, categories, prohibition, issOfProhibition, expOfProhibition, picture);
-   
+
     }
 }

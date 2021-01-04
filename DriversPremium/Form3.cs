@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
-using Osobe;
+using Persons;
 
 namespace DriversPremium
 {
-    public partial class Form3 : Form 
-    {
-        #region Attributes
     public partial class Form3 : Form
     { 
         private static DataTable dt1 = new DataTable();

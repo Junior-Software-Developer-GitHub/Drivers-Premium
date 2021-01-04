@@ -100,16 +100,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Osobe\Osobe.csproj">
-      <Project>{878c077e-5038-465c-9671-50ba5cf5c01f}</Project>
-      <Name>Osobe</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\seo-social-web-network-internet_262_icon-icons.com_61518.ico" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\plus_icon-icons.com_70890.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Osobe\Persons.csproj">
+      <Project>{878c077e-5038-465c-9671-50ba5cf5c01f}</Project>
+      <Name>Persons</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -30,91 +30,91 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.Sortiraj_dgm = new System.Windows.Forms.Button();
-            this.IzmeniVozaca_dgm = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridViewLista = new System.Windows.Forms.DataGridView();
-            this.ObrisiVozaca_dgm = new System.Windows.Forms.Button();
-            this.dodajVozaca_dgm = new System.Windows.Forms.Button();
+            this.Sort_btn = new System.Windows.Forms.Button();
+            this.ChangeDriver_btn = new System.Windows.Forms.Button();
+            this.groupBoxDrivers = new System.Windows.Forms.GroupBox();
+            this.dataGridViewList = new System.Windows.Forms.DataGridView();
+            this.DeleteDriver_btn = new System.Windows.Forms.Button();
+            this.AddDriver_btn = new System.Windows.Forms.Button();
             this.labelTime = new System.Windows.Forms.Label();
             this.comboBoxSort = new System.Windows.Forms.ComboBox();
-            this.timerVreme = new System.Windows.Forms.Timer(this.components);
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLista)).BeginInit();
+            this.timerTime = new System.Windows.Forms.Timer(this.components);
+            this.groupBoxDrivers.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewList)).BeginInit();
             this.SuspendLayout();
             // 
-            // Sortiraj_dgm
+            // Sort_btn
             // 
-            this.Sortiraj_dgm.FlatAppearance.BorderSize = 0;
-            this.Sortiraj_dgm.Location = new System.Drawing.Point(262, 16);
-            this.Sortiraj_dgm.Name = "Sortiraj_dgm";
-            this.Sortiraj_dgm.Size = new System.Drawing.Size(75, 23);
-            this.Sortiraj_dgm.TabIndex = 2;
-            this.Sortiraj_dgm.Text = "Sortiraj";
-            this.Sortiraj_dgm.UseVisualStyleBackColor = true;
-            this.Sortiraj_dgm.Click += new System.EventHandler(this.Sortiraj_dgm_Click);
+            this.Sort_btn.FlatAppearance.BorderSize = 0;
+            this.Sort_btn.Location = new System.Drawing.Point(295, 18);
+            this.Sort_btn.Name = "Sort_btn";
+            this.Sort_btn.Size = new System.Drawing.Size(75, 23);
+            this.Sort_btn.TabIndex = 2;
+            this.Sort_btn.Text = "Sort";
+            this.Sort_btn.UseVisualStyleBackColor = true;
+            this.Sort_btn.Click += new System.EventHandler(this.Sort_btn_Click);
             // 
-            // IzmeniVozaca_dgm
+            // ChangeDriver_btn
             // 
-            this.IzmeniVozaca_dgm.Enabled = false;
-            this.IzmeniVozaca_dgm.Location = new System.Drawing.Point(150, 226);
-            this.IzmeniVozaca_dgm.Name = "IzmeniVozaca_dgm";
-            this.IzmeniVozaca_dgm.Size = new System.Drawing.Size(79, 41);
-            this.IzmeniVozaca_dgm.TabIndex = 1;
-            this.IzmeniVozaca_dgm.Text = "Izmeni vozaca";
-            this.IzmeniVozaca_dgm.UseVisualStyleBackColor = true;
-            this.IzmeniVozaca_dgm.Click += new System.EventHandler(this.IzmeniVozaca_dgm_Click);
+            this.ChangeDriver_btn.Enabled = false;
+            this.ChangeDriver_btn.Location = new System.Drawing.Point(150, 226);
+            this.ChangeDriver_btn.Name = "ChangeDriver_btn";
+            this.ChangeDriver_btn.Size = new System.Drawing.Size(79, 41);
+            this.ChangeDriver_btn.TabIndex = 1;
+            this.ChangeDriver_btn.Text = "Change driver";
+            this.ChangeDriver_btn.UseVisualStyleBackColor = true;
+            this.ChangeDriver_btn.Click += new System.EventHandler(this.ChangeDriver_btn_Click);
             // 
-            // groupBox1
+            // groupBoxDrivers
             // 
-            this.groupBox1.Controls.Add(this.dataGridViewLista);
-            this.groupBox1.Controls.Add(this.IzmeniVozaca_dgm);
-            this.groupBox1.Controls.Add(this.ObrisiVozaca_dgm);
-            this.groupBox1.Controls.Add(this.dodajVozaca_dgm);
-            this.groupBox1.Location = new System.Drawing.Point(12, 50);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(507, 274);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Lista vozaca";
+            this.groupBoxDrivers.Controls.Add(this.dataGridViewList);
+            this.groupBoxDrivers.Controls.Add(this.ChangeDriver_btn);
+            this.groupBoxDrivers.Controls.Add(this.DeleteDriver_btn);
+            this.groupBoxDrivers.Controls.Add(this.AddDriver_btn);
+            this.groupBoxDrivers.Location = new System.Drawing.Point(12, 50);
+            this.groupBoxDrivers.Name = "groupBoxDrivers";
+            this.groupBoxDrivers.Size = new System.Drawing.Size(507, 274);
+            this.groupBoxDrivers.TabIndex = 1;
+            this.groupBoxDrivers.TabStop = false;
+            this.groupBoxDrivers.Text = "Drivers list";
             // 
-            // dataGridViewLista
+            // dataGridViewList
             // 
-            this.dataGridViewLista.AllowUserToAddRows = false;
-            this.dataGridViewLista.AllowUserToDeleteRows = false;
-            this.dataGridViewLista.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dataGridViewLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewLista.Location = new System.Drawing.Point(6, 19);
-            this.dataGridViewLista.Name = "dataGridViewLista";
-            this.dataGridViewLista.ReadOnly = true;
-            this.dataGridViewLista.Size = new System.Drawing.Size(495, 201);
-            this.dataGridViewLista.TabIndex = 3;
+            this.dataGridViewList.AllowUserToAddRows = false;
+            this.dataGridViewList.AllowUserToDeleteRows = false;
+            this.dataGridViewList.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dataGridViewList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewList.Location = new System.Drawing.Point(6, 19);
+            this.dataGridViewList.Name = "dataGridViewList";
+            this.dataGridViewList.ReadOnly = true;
+            this.dataGridViewList.Size = new System.Drawing.Size(495, 201);
+            this.dataGridViewList.TabIndex = 3;
             // 
-            // ObrisiVozaca_dgm
+            // DeleteDriver_btn
             // 
-            this.ObrisiVozaca_dgm.Enabled = false;
-            this.ObrisiVozaca_dgm.Image = global::DriversPremium.Properties.Resources.seo_social_web_network_internet_262_icon_icons_com_61518;
-            this.ObrisiVozaca_dgm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ObrisiVozaca_dgm.Location = new System.Drawing.Point(385, 227);
-            this.ObrisiVozaca_dgm.Name = "ObrisiVozaca_dgm";
-            this.ObrisiVozaca_dgm.Size = new System.Drawing.Size(116, 41);
-            this.ObrisiVozaca_dgm.TabIndex = 2;
-            this.ObrisiVozaca_dgm.Text = "Obrisi vozaca";
-            this.ObrisiVozaca_dgm.UseVisualStyleBackColor = true;
-            this.ObrisiVozaca_dgm.Click += new System.EventHandler(this.ObrisiVozaca_dgm_Click);
+            this.DeleteDriver_btn.Enabled = false;
+            this.DeleteDriver_btn.Image = global::DriversPremium.Properties.Resources.seo_social_web_network_internet_262_icon_icons_com_61518;
+            this.DeleteDriver_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.DeleteDriver_btn.Location = new System.Drawing.Point(388, 227);
+            this.DeleteDriver_btn.Name = "DeleteDriver_btn";
+            this.DeleteDriver_btn.Size = new System.Drawing.Size(113, 41);
+            this.DeleteDriver_btn.TabIndex = 2;
+            this.DeleteDriver_btn.Text = "Delete driver";
+            this.DeleteDriver_btn.UseVisualStyleBackColor = true;
+            this.DeleteDriver_btn.Click += new System.EventHandler(this.DeleteDriver_btn_Click);
             // 
-            // dodajVozaca_dgm
+            // AddDriver_btn
             // 
-            this.dodajVozaca_dgm.Image = global::DriversPremium.Properties.Resources.plus_icon_icons_com_70890;
-            this.dodajVozaca_dgm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.dodajVozaca_dgm.Location = new System.Drawing.Point(6, 226);
-            this.dodajVozaca_dgm.Name = "dodajVozaca_dgm";
-            this.dodajVozaca_dgm.Size = new System.Drawing.Size(115, 41);
-            this.dodajVozaca_dgm.TabIndex = 0;
-            this.dodajVozaca_dgm.Text = "Dodaj vozaca";
-            this.dodajVozaca_dgm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.dodajVozaca_dgm.UseVisualStyleBackColor = true;
-            this.dodajVozaca_dgm.Click += new System.EventHandler(this.DodajVozaca_dgm_Click);
+            this.AddDriver_btn.Image = global::DriversPremium.Properties.Resources.plus_icon_icons_com_70890;
+            this.AddDriver_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AddDriver_btn.Location = new System.Drawing.Point(6, 226);
+            this.AddDriver_btn.Name = "AddDriver_btn";
+            this.AddDriver_btn.Size = new System.Drawing.Size(115, 41);
+            this.AddDriver_btn.TabIndex = 0;
+            this.AddDriver_btn.Text = "Add a driver";
+            this.AddDriver_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AddDriver_btn.UseVisualStyleBackColor = true;
+            this.AddDriver_btn.Click += new System.EventHandler(this.AddDriver_btn_Click);
             // 
             // labelTime
             // 
@@ -130,53 +130,53 @@
             this.comboBoxSort.DisplayMember = "0";
             this.comboBoxSort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSort.Items.AddRange(new object[] {
-            "Broj vozacke dozvole",
-            "Ime",
-            "Prezime"});
-            this.comboBoxSort.Location = new System.Drawing.Point(343, 16);
+            "Driver\'s license number",
+            "First name",
+            "Last name"});
+            this.comboBoxSort.Location = new System.Drawing.Point(380, 18);
             this.comboBoxSort.Name = "comboBoxSort";
             this.comboBoxSort.Size = new System.Drawing.Size(133, 21);
             this.comboBoxSort.Sorted = true;
             this.comboBoxSort.TabIndex = 3;
             // 
-            // timerVreme
+            // timerTime
             // 
-            this.timerVreme.Interval = 1000;
-            this.timerVreme.Tick += new System.EventHandler(this.TimerVreme_Tick);
+            this.timerTime.Interval = 1000;
+            this.timerTime.Tick += new System.EventHandler(this.TimerTime_Tick);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(532, 338);
+            this.ClientSize = new System.Drawing.Size(532, 336);
             this.Controls.Add(this.comboBoxSort);
             this.Controls.Add(this.labelTime);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.Sortiraj_dgm);
+            this.Controls.Add(this.groupBoxDrivers);
+            this.Controls.Add(this.Sort_btn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Vozaci";
+            this.Text = "Drivers";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLista)).EndInit();
+            this.groupBoxDrivers.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button dodajVozaca_dgm;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button AddDriver_btn;
+        private System.Windows.Forms.GroupBox groupBoxDrivers;
         private System.Windows.Forms.Label labelTime;
         private System.Windows.Forms.ComboBox comboBoxSort;
-        private System.Windows.Forms.Timer timerVreme;
-        private System.Windows.Forms.DataGridView dataGridViewLista;
-        private System.Windows.Forms.Button Sortiraj_dgm;
-        private System.Windows.Forms.Button IzmeniVozaca_dgm;
-        private System.Windows.Forms.Button ObrisiVozaca_dgm;
+        private System.Windows.Forms.Timer timerTime;
+        private System.Windows.Forms.DataGridView dataGridViewList;
+        private System.Windows.Forms.Button Sort_btn;
+        private System.Windows.Forms.Button ChangeDriver_btn;
+        private System.Windows.Forms.Button DeleteDriver_btn;
     }
 }
 

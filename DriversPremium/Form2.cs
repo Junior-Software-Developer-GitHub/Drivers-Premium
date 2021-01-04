@@ -1,4 +1,4 @@
-﻿using Osobe;
+﻿using Persons;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,344 +14,320 @@ namespace DriversPremium
 {
     public partial class Form2 : Form
     {
-        #region Attributes
-        public static DataTable dt = new DataTable();
-        public static bool proslediKliknuto;
-        #endregion Attributes
+        private static readonly DataTable dt = new DataTable();
 
-        #region Constructor
         public Form2()
         {
             InitializeComponent();
             Form1 fm1 = new Form1();
-            if (!fm1.DodajKliknuto)
+            if (!fm1.AddClicked)
             {
-                dateTimePickerVazenjeOd.Format = DateTimePickerFormat.Custom;
-                dateTimePickerVazenjeOd.CustomFormat = " ";
-                dateTimePickerVazenjeDo.Format = DateTimePickerFormat.Custom;
-                dateTimePickerVazenjeDo.CustomFormat = " ";
+                dateTimePickerISS.Format = DateTimePickerFormat.Custom;
+                dateTimePickerISS.CustomFormat = " ";
+                dateTimePickerEXP.Format = DateTimePickerFormat.Custom;
+                dateTimePickerEXP.CustomFormat = " ";
             }
             
         }
-        #endregion Constructor
 
-        #region Properties
-        public String Ime
+        public TextBox FirstName
         {
-            get { return ime_txt.Text; }
-            set { ime_txt.Text = value; }
+            get => firstName_txt;
+            set => firstName_txt = value;
         }
-        public String Prezime
+        public String LastName
         {
-            get { return prezime_txt.Text; }
-            set { prezime_txt.Text = value; }
+            get => lastName_txt.Text;
+            set => lastName_txt.Text = value;
         }
-        public DateTime DatumRodjenja
+        public DateTime DateOfBirth
         {
-            get { return dateTimePickerDatumRodjenja.Value; }
-            set { dateTimePickerDatumRodjenja.Value = value; }
+            get => dateTimePickerDateOfBirth.Value;
+            set => dateTimePickerDateOfBirth.Value = value;
         }
-        public DateTime DatumVazenjaOd
+        public DateTime ISS
         {
-            get { return dateTimePickerVazenjeOd.Value; }
-            set { dateTimePickerVazenjeOd.Value = value; }
+            get => dateTimePickerISS.Value;
+            set => dateTimePickerISS.Value = value;
         }
-        public DateTime DatumVazenjaDo
+        public DateTime EXP
         {
-            get { return dateTimePickerVazenjeDo.Value; }
-            set { dateTimePickerVazenjeDo.Value = value; }
+            get => dateTimePickerEXP.Value;
+            set => dateTimePickerEXP.Value = value;
         }
-        public String BrDozvole //Vrednost
+        public String DriverLicenseNumber
         {
-            get { return brDozvole_txt.Text; }
-            set { brDozvole_txt.Text = value; }
+            get => numberOfLicense_txt.Text;
+            set => numberOfLicense_txt.Text = value;
         }
-        public TextBox BrojDozvole //Textbox
+        public TextBox DriverLicenseNumberTextBox
         {
-            get { return brDozvole_txt; }
-            set { brDozvole_txt = value; }
+            get => numberOfLicense_txt;
+            set => numberOfLicense_txt = value;
         }
-        public String MestoIzdavanja
+        public String PlaceOfIssue
         {
-            get { return mestoIzdavanja_txt.Text; }
-            set { mestoIzdavanja_txt.Text = value; }
+            get => placeOfIssue_txt.Text;
+            set => placeOfIssue_txt.Text = value;
         }
-        public String Pol
+        public String Gender
         {
-            get { return pol_comboBox.SelectedItem.ToString(); }
-            set { pol_comboBox.SelectedItem = value; }
+            get => gender_comboBox.SelectedItem.ToString();
+            set => gender_comboBox.SelectedItem = value;
         }
-        public PictureBox SlikaVoazaca
+        public PictureBox PictureOfDriver
         {
-            get { return pictureBoxSlikaVozaca; }
-            set { pictureBoxSlikaVozaca = value; }
-        }
-        public DataGridView Kategorije
-        {
-            get { return dataGridViewKategorije; }
-        }
-        public DataGridView Zabrane
-        {
-            get { return dataGridViewZabrane; }
-        }
-
-        public Button ObrisiKategoriju
-        {
-            get { return ObrisiKategoriju_dgm; }
-            set { ObrisiKategoriju_dgm = value; }
-        }
-        public Button ObrisiZabranu
-        {
-            get { return ObrisiZabranu_dgm; }
-            set { ObrisiZabranu_dgm = value; }
-        }
-        public Button DodajNovuKategoriju
-        {
-            get { return DodajKategoriju_dgm; }
-            set { DodajKategoriju_dgm = value; }
-        }
-        public Button DodajNovuZabranu
-        {
-            get { return DodajNovuZabranu_dgm; ; }
-            set { DodajNovuZabranu_dgm = value; }
-        }
-
-        #endregion Properties
-
-        #region Methods
-        private void DodajKategoriju_dgm_Click(object sender, EventArgs e)
-        {
-            Form3 fm3 = new Form3();
-            fm3.DatumOd.Enabled = fm3.DatumDo.Enabled = false;
-            fm3.DatumOd.Value = dateTimePickerVazenjeOd.Value;
-            fm3.DatumDo.Value = dateTimePickerVazenjeDo.Value;
-            fm3.Show();
-        }
-
-        private void DodajNovuZabranu_dgm_Click(object sender, EventArgs e)
-        {
-            Form3 fm3 = new Form3();
-            fm3.Kategorija.Items.Clear();
-            fm3.DatumOd.Enabled = fm3.DatumDo.Enabled = true;
-            foreach (DataGridViewRow dr in dataGridViewKategorije.Rows)
-                fm3.Kategorija.Items.Add(dr.Cells["Kategorije"].Value);
-
-            fm3.DatumDo.Enabled = fm3.DatumDo.Enabled = true;
-            fm3.Text = "ZABRANA";
-            fm3.Show();
-        }
-
-        private void Prosledi_dgm_Click(object sender, EventArgs e)
-        {
-            Form1 fm1 = new Form1();
-
-            if (PopunjenostPolja())
-            {
-                List<string> kategorije = new List<string>();
-
-                foreach(DataGridViewRow dr in Kategorije.Rows)
-                    kategorije.Add(dr.Cells[0].Value.ToString());
-
-                List<string> kategorijeZabrana = new List<string>();
-                List<string> vazenjeZabraneOd  = new List<string>();
-                List<string> vazenjeZabraneDo  = new List<string>();
-                bool res;
-
-                if (fm1.DodajKliknuto)
-                {
-                    foreach(DataGridViewRow dr in Zabrane.Rows)
-                    {
-                        kategorijeZabrana.Add(dr.Cells[0].Value.ToString());
-                        vazenjeZabraneOd.Add(dr.Cells[1].Value.ToString());
-                        vazenjeZabraneDo.Add(dr.Cells[2].Value.ToString());
-                    }
-                    Osoba o = new Osoba(VelikoPocetnoSlovo(ime_txt.Text), VelikoPocetnoSlovo(prezime_txt.Text), dateTimePickerDatumRodjenja.Value
-                        , dateTimePickerVazenjeOd.Value, dateTimePickerVazenjeDo.Value, brDozvole_txt.Text, mestoIzdavanja_txt.Text,
-                        pol_comboBox.SelectedItem.ToString(), kategorije, kategorijeZabrana, vazenjeZabraneOd, vazenjeZabraneDo, openFileDialog1.FileName);
-
-                    res = ListaOsoba.Instance.DodajOsobu(o);
-    
-                    if (!res)
-                    {
-                        MessageBox.Show("GRESKA");
-                        return;
-                    }
-                }
-                else
-                {
-                    Osoba o = ListaOsoba.Instance.VratiOsobu(BrDozvole);
-                    o.DatumRodj = dateTimePickerDatumRodjenja.Value;
-                    o.VazenjeOd = dateTimePickerVazenjeOd.Value;
-                    o.VazenjeDo = dateTimePickerVazenjeDo.Value;
-                    o.Kategorije.Clear();
-                    o.Zabrane.Clear();
-                    o.VazenjeZabraneOd.Clear();
-                    o.VazenjeZabraneDo.Clear();
-                    foreach (DataGridViewRow dr in Kategorije.Rows)
-                        o.Kategorije.Add(dr.Cells[0].Value.ToString());
-
-                    foreach (DataGridViewRow dr in Zabrane.Rows)
-                    {
-                         o.Zabrane.Add(dr.Cells[0].Value.ToString());
-                         o.VazenjeZabraneOd.Add(dr.Cells[1].Value.ToString());
-                         o.VazenjeZabraneDo.Add(dr.Cells[2].Value.ToString());
-                    }
-                    ObrisiDuplikate(o);               
-                }
-
-                NapraviKolone(dt);
-
-                Form3 fm3 = new Form3();
-                fm3.DT1.Rows.Clear();
-                fm3.DT2.Rows.Clear();
-                dt.Rows.Add(VelikoPocetnoSlovo(Ime), VelikoPocetnoSlovo(Prezime), BrDozvole);         
-
-                fm1.DTGview.DataSource = dt;
-               
-                _= (dt.Rows.Count > 0) ? (fm1.ObrisiVozacaDgm.Enabled = fm1.IzmeniVozacaDgm.Enabled = true)
-                    : (fm1.ObrisiVozacaDgm.Enabled = fm1.IzmeniVozacaDgm.Enabled = true);
-             
-                this.Close();
-                fm1.Show();
-            }            
-        }
-
-        private void Zatvori_dgm_Click(object sender, EventArgs e)
-        {
-          DialogResult dr = MessageBox.Show("Da li zelite da zatvorite aplikaciju?",
-                      "Zatvaranje", MessageBoxButtons.YesNo);
-            switch (dr)
-            {
-                case DialogResult.Yes:
-                    Application.Exit();
-                    break;   
-            }
-        }
-        String VelikoPocetnoSlovo(String a)
-        {
-            return char.ToUpper(a[0]) + a.Substring(1);   
+            get => pictureBoxSlikaVozaca;
+            set => pictureBoxSlikaVozaca = value;
         }
         
-        private void ObrisiKategoriju_dgm_Click(object sender, EventArgs e)
+        public DataGridView Categories => dataGridViewCategories;
+        
+        public DataGridView Prohibition => dataGridViewProhibition;
+
+        public Button DeleteCategory
         {
-            int index = Kategorije.CurrentCell.RowIndex; 
-            Form1 fm1 = new Form1();
-            if (fm1.DodajKliknuto)
-            {
-                for (int i = 0; i < Zabrane.Rows.Count; i++)
-                {
-                    if (Zabrane.Rows[i].Cells[0].Value.ToString() == Kategorije.Rows[index].Cells[0].Value.ToString())
-                        Zabrane.Rows.RemoveAt(i);
-                }
-                Osoba o = ListaOsoba.Instance.VratiOsobu(BrDozvole);
-                if (ListaOsoba.Instance.PostojiUlisti(o))
-                    o.Kategorije.Remove(Kategorije.Rows[index].Cells[0].Value.ToString());
-               
-                Kategorije.Rows.RemoveAt(index);
-               
-                
-            }
-            else  Kategorije.Rows.RemoveAt(index);
-            _ = (Kategorije.Rows.Count == 0) ? ObrisiKategoriju_dgm.Enabled = false : ObrisiKategoriju_dgm.Enabled = true;
+            get => DeleteAcategory_btn;
+            set => DeleteAcategory_btn = value;
+        }
+        public Button DeleteProhibition
+        {
+            get => DeleteAprohibition_btn;
+            set => DeleteAprohibition_btn = value;
+        }
+        public Button AddAnewCategory
+        {
+            get => AddAnewCategory_btn;
+            set => AddAnewCategory_btn = value;
+        }
+        public Button AddAnewProhibition
+        {
+            get => AddAnewProhibition_btn;
+            set => AddAnewProhibition_btn = value;
         }
 
-        private void ObrisiZabranu_dgm_Click(object sender, EventArgs e)
-        {
-            int index = Zabrane.CurrentCell.RowIndex;
-            Form1 fm1 = new Form1();
-
-            if (!fm1.DodajKliknuto)
-            {
-                Osoba o = ListaOsoba.Instance.VratiOsobu(BrDozvole);
-                if (ListaOsoba.Instance.PostojiUlisti(o))
-                    o.Zabrane.Remove(Zabrane.Rows[index].Cells[0].Value.ToString());
-
-                Zabrane.Rows.RemoveAt(index);
-            }
-            else Zabrane.Rows.RemoveAt(index);
-            _ = (Zabrane.Rows.Count == 0) ? ObrisiZabranu_dgm.Enabled = false : ObrisiZabranu_dgm.Enabled = true;
-        }
-        public void ObrisiDuplikate(Osoba o)
-        {
-            HashSet<String> hs = new HashSet<String>();
-            for (int i = 0; i < o.Kategorije.Count; i++)
-                if (!hs.Add(o.Kategorije[i]))
-                    o.Kategorije.Remove(o.Kategorije[i]);
-            HashSet<String> hs1 = new HashSet<String>();
-            for (int i = 0; i < o.Zabrane.Count; i++)
-                if (!hs1.Add(o.Zabrane[i]))
-                    o.Zabrane.Remove(o.Zabrane[i]);
-        }
-
-        private void DodajSliku_dgm_Click(object sender, EventArgs e)
+        private void AddPicture_btn_Click(object sender, EventArgs e)
         {
             openFileDialog1.ShowDialog();
             pictureBoxSlikaVozaca.ImageLocation = openFileDialog1.FileName;
         }
 
-        private bool PopunjenostPolja()
+        private void AddAnewCategory_btn_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(Ime) || String.IsNullOrEmpty(Prezime) || BrDozvole.Length<9
-                || String.IsNullOrEmpty(MestoIzdavanja) || pol_comboBox.SelectedIndex==-1 ||
-                dataGridViewKategorije.Rows.Count == 0 || pictureBoxSlikaVozaca.Image==null) 
+            Form3 fm3 = new Form3();
+            fm3.ISS.Enabled = fm3.EXP.Enabled = false;
+            fm3.ISS.Value = dateTimePickerISS.Value;
+            fm3.EXP.Value = dateTimePickerEXP.Value;
+            fm3.Show();
+        }
+
+        private void DeleteAcategory_btn_Click(object sender, EventArgs e)
+        {
+            int index = Categories.CurrentCell.RowIndex;
+       
+                for (int i = 0; i < Prohibition.Rows.Count; i++)
+                {
+                    if (Prohibition.Rows[i].Cells[0].Value.ToString() == Categories.Rows[index].Cells[0].Value.ToString())
+                        Prohibition.Rows.RemoveAt(i);
+                }
+                
+                Categories.Rows.RemoveAt(index);       
+                _ = (Categories.Rows.Count == 0) ? DeleteAcategory_btn.Enabled = false : DeleteAcategory_btn.Enabled = true;
+                _ = dataGridViewProhibition.Rows.Count == 0 ? DeleteAprohibition_btn.Enabled = false : DeleteAprohibition_btn.Enabled = true;
+        }
+
+
+        private void AddAnewProhibition_btn_Click(object sender, EventArgs e)
+        {
+            Form3 fm3 = new Form3();
+            fm3.Category.Items.Clear();
+            fm3.ISS.Enabled = fm3.EXP.Enabled = true;
+
+            foreach (DataGridViewRow dr in dataGridViewCategories.Rows)
+                fm3.Category.Items.Add(dr.Cells["Category"].Value);
+
+            fm3.ISS.Enabled = fm3.EXP.Enabled = true;
+            fm3.Text = "Prohibition";
+
+            fm3.ISS.MinDate = new DateTime(ISS.Year, ISS.Month, ISS.Day);
+            fm3.ISS.MaxDate = new DateTime(EXP.Year, EXP.Month, ISS.Day);
+            fm3.ISS.Value = fm3.ISS.MinDate;
+
+            fm3.EXP.MinDate = new DateTime(ISS.Year, ISS.Month + 3, ISS.Day);
+            fm3.EXP.MaxDate = new DateTime(EXP.Year, EXP.Month, EXP.Day);
+            fm3.Show();
+        }
+
+        private void DeleteAprohibition_btn_Click(object sender, EventArgs e)
+        {
+            int index = Prohibition.CurrentCell.RowIndex;
+            Form1 fm1 = new Form1();
+
+            if (!fm1.AddClicked)
+            {
+                if (PersonsList.Instance.Exists(PersonsList.Instance.GetPerson(DriverLicenseNumber)))
+                    PersonsList.Instance.GetPerson(DriverLicenseNumber).Prohibition.Remove(Prohibition.Rows[index].Cells[0].Value.ToString());
+
+                Prohibition.Rows.RemoveAt(index);
+            }
+            else Prohibition.Rows.RemoveAt(index);
+            _ = (Prohibition.Rows.Count == 0) ? DeleteAprohibition_btn.Enabled = false : DeleteAprohibition_btn.Enabled = true;
+        }
+
+        private void Back_btn_Click(object sender, EventArgs e)
+        {
+            Form1 fm1 = (Form1)Application.OpenForms["Form1"];
+            Close();
+            fm1.ShowDialog();//ovde brise objekat 
+        }
+
+        private void Create_btn_Click(object sender, EventArgs e)
+        {
+                Form1 fm1 = new Form1();
+            try
+            {
+                if (FieldOccupancy())
+                {
+                    List<string> categories = new List<string>();
+
+                    foreach (DataGridViewRow dr in Categories.Rows)
+                        categories.Add(dr.Cells[0].Value.ToString());
+
+                    List<string> prohibitions = new List<string>();
+                    List<string> prohibitionsISS = new List<string>();
+                    List<string> prohibitionsEXP = new List<string>();
+                    bool res;
+
+                    foreach (DataGridViewRow dr in Prohibition.Rows)
+                    {
+                        prohibitions.Add(dr.Cells[0].Value.ToString());
+                        prohibitionsISS.Add(dr.Cells[1].Value.ToString());
+                        prohibitionsEXP.Add(dr.Cells[2].Value.ToString());
+                    }
+
+                    if (fm1.AddClicked)
+                    {
+                        res = PersonsList.Instance.AddPerson(new Person(FirstLetterCapital(firstName_txt.Text), FirstLetterCapital(lastName_txt.Text), dateTimePickerDateOfBirth.Value
+                            , dateTimePickerISS.Value, dateTimePickerEXP.Value, numberOfLicense_txt.Text, placeOfIssue_txt.Text,
+                            gender_comboBox.SelectedItem.ToString(), categories, prohibitions, prohibitionsISS, prohibitionsEXP, openFileDialog1.FileName));
+
+                        if (!res)
+                        {
+                            MessageBox.Show("ERROR");
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        Person p = PersonsList.Instance.GetPerson(DriverLicenseNumber);
+                        PersonsList.Instance.DeletePerson(p);
+
+                        p = new Person(FirstLetterCapital(firstName_txt.Text), FirstLetterCapital(lastName_txt.Text), dateTimePickerDateOfBirth.Value
+                            , dateTimePickerISS.Value, dateTimePickerEXP.Value, numberOfLicense_txt.Text, placeOfIssue_txt.Text,
+                            gender_comboBox.SelectedItem.ToString(), categories, prohibitions, prohibitionsISS, prohibitionsEXP, openFileDialog1.FileName);
+                        _ = PersonsList.Instance.AddPerson(p);
+
+                        DeleteDuplicates(p);
+                    }
+                    MakeColumns(dt);
+
+                    using (Form3 fm3 = new Form3())
+                    {
+                        fm3.DT1.Rows.Clear();
+                        fm3.DT2.Rows.Clear();
+                    }
+                    dt.Rows.Add(FirstLetterCapital(FirstName.Text), FirstLetterCapital(LastName), DriverLicenseNumber);
+
+                    fm1.DTGview.DataSource = dt;
+
+                    _ = (dt.Rows.Count > 0) ? (fm1.DeleteDriverBtn.Enabled = fm1.ChangeDriverBtn.Enabled = true)
+                        : (fm1.DeleteDriverBtn.Enabled = fm1.ChangeDriverBtn.Enabled = true);
+                    this.Close();
+                    fm1.Show();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Exception: " + ex);
+            }
+        }
+
+        private void Close_btn_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Do you want to close application?",
+                     "Exit", MessageBoxButtons.YesNo);
+            switch (dr)
+            {
+                case DialogResult.Yes:
+                    Application.Exit();
+                    break;
+            }
+        }
+        String FirstLetterCapital(String s)
+        {
+            return char.ToUpper(s[0]) + s.Substring(1);
+        }
+
+        public void DeleteDuplicates(Person p)
+        {
+            HashSet<String> hs = new HashSet<String>();
+            foreach (string v in p.Categories)
+                if (!hs.Add(v))
+                    p.Categories.Remove(v);
+            HashSet<String> hs1 = new HashSet<String>();
+            foreach (string v1 in p.Prohibition)
+                if (!hs1.Add(v1))
+                    p.Prohibition.Remove(v1);
+        }
+
+        private bool FieldOccupancy()
+        {
+            if (String.IsNullOrEmpty(FirstName.Text) || String.IsNullOrEmpty(LastName) || DriverLicenseNumber.Length < 9
+                || String.IsNullOrEmpty(PlaceOfIssue) || gender_comboBox.SelectedIndex == -1 ||
+                dataGridViewCategories.Rows.Count == 0 || pictureBoxSlikaVozaca.Image == null) 
             { 
-                MessageBox.Show("Popunite svako polje!");
+                MessageBox.Show("Fill in all fields!");
                 return false;
             }
             return true;
         }
 
-        private void DateTimePickerDatumRodjenja_ValueChanged(object sender, EventArgs e)
+        private void MakeColumns(DataTable dt) => _ = (dt.Columns.Count == 0) ? (dt.Columns.Add("First name"), dt.Columns.Add("Last name"),
+               dt.Columns.Add("Driver's license number")) : (null, null, null);
+
+        private void FirstName_txt_KeyPress(object sender, KeyPressEventArgs e) 
+            => e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+
+        private void LastName_txt_KeyPress(object sender, KeyPressEventArgs e) 
+            => e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+
+        private void DateTimePickerDateOfBirth_ValueChanged(object sender, EventArgs e)
         {
-            dateTimePickerVazenjeOd.MinDate = new DateTime(dateTimePickerDatumRodjenja.Value.Year + 17,
-                dateTimePickerDatumRodjenja.Value.Month, dateTimePickerDatumRodjenja.Value.Day);
+            dateTimePickerISS.MinDate = new DateTime(dateTimePickerDateOfBirth.Value.Year + 17,
+                dateTimePickerDateOfBirth.Value.Month, dateTimePickerDateOfBirth.Value.Day);
 
-            dateTimePickerVazenjeOd.MaxDate = new DateTime(2021,1,1);
+            dateTimePickerISS.MaxDate = new DateTime(2021, 1, 1);
 
-            dateTimePickerDatumRodjenja.Format = DateTimePickerFormat.Short;
-            dateTimePickerVazenjeOd.Format = DateTimePickerFormat.Short;
+            dateTimePickerDateOfBirth.Format = DateTimePickerFormat.Short;
+            dateTimePickerISS.Format = DateTimePickerFormat.Short;
 
-            dateTimePickerVazenjeOd.Enabled = true;
+            dateTimePickerISS.Enabled = true;
         }
 
-        private void DateTimePickerVazenjeOd_ValueChanged(object sender, EventArgs e)
+        private void DateTimePickerISS_ValueChanged(object sender, EventArgs e)
         {
+            dateTimePickerEXP.MinDate = new DateTime(dateTimePickerISS.Value.Year + 10,
+                dateTimePickerISS.Value.Month, dateTimePickerISS.Value.Day);
 
-            dateTimePickerVazenjeDo.MinDate = new DateTime(dateTimePickerVazenjeOd.Value.Year + 10,
-                dateTimePickerVazenjeOd.Value.Month, dateTimePickerVazenjeOd.Value.Day);
-
-            dateTimePickerVazenjeDo.Format = DateTimePickerFormat.Custom;
-            dateTimePickerVazenjeDo.CustomFormat = dateTimePickerVazenjeDo.MinDate.ToShortDateString();
-            dateTimePickerVazenjeDo.Value = dateTimePickerVazenjeDo.MinDate;
-        }
-        #region KeyPress
-        private void NapraviKolone(DataTable dt)
-        {
-            _ = (dt.Columns.Count == 0) ? (dt.Columns.Add("Ime"), dt.Columns.Add("Prezime"),
-               dt.Columns.Add("Broj dozvole")) : (null, null, null);
-        }
-        private void Ime_txt_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+            dateTimePickerEXP.Format = DateTimePickerFormat.Custom;
+            dateTimePickerEXP.CustomFormat = dateTimePickerEXP.MinDate.ToShortDateString();
+            dateTimePickerEXP.Value = dateTimePickerEXP.MinDate;       
         }
 
-        private void Prezime_txt_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
-        }
+        private void NumberOfLicense_txt_KeyPress(object sender, KeyPressEventArgs e)
+            => e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
 
-        private void MestoIzdavanja_txt_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
-        }
-
-        private void BrDozvole_txt_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
-        }
-        #endregion KeyPress
-
-        #endregion Methods
-
+        private void PlaceOfIssue_txt_KeyPress(object sender, KeyPressEventArgs e)
+            => e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
     }
 }

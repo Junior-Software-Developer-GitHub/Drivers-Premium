@@ -1,5 +1,4 @@
-﻿using Persons;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,28 +7,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Persons;
 
 namespace DriversPremium
 {
-    public partial class Form2 : Form
+    public partial class MakeDriverForm : Form
     {
+        /* Attribute */
         private static readonly DataTable dt = new DataTable();
 
-        public Form2()
+        public MakeDriverForm()
         {
             InitializeComponent();
-            Form1 fm1 = new Form1();
+            ShowDriversForm fm1 = new ShowDriversForm();
             if (!fm1.AddClicked)
             {
                 dateTimePickerISS.Format = DateTimePickerFormat.Custom;
                 dateTimePickerISS.CustomFormat = " ";
                 dateTimePickerEXP.Format = DateTimePickerFormat.Custom;
                 dateTimePickerEXP.CustomFormat = " ";
-            }
-            
+            }      
         }
 
+        /* Properties */
         public TextBox FirstName
         {
             get => firstName_txt;
@@ -106,6 +106,7 @@ namespace DriversPremium
             set => AddAnewProhibition_btn = value;
         }
 
+        /* ButtonClick methods */
         private void AddPicture_btn_Click(object sender, EventArgs e)
         {
             openFileDialog1.ShowDialog();
@@ -114,7 +115,7 @@ namespace DriversPremium
 
         private void AddAnewCategory_btn_Click(object sender, EventArgs e)
         {
-            Form3 fm3 = new Form3();
+            CategoryProhibitionForm fm3 = new CategoryProhibitionForm();
             fm3.ISS.Enabled = fm3.EXP.Enabled = false;
             fm3.ISS.Value = dateTimePickerISS.Value;
             fm3.EXP.Value = dateTimePickerEXP.Value;
@@ -131,15 +132,14 @@ namespace DriversPremium
                         Prohibition.Rows.RemoveAt(i);
                 }
                 
-                Categories.Rows.RemoveAt(index);       
-                _ = (Categories.Rows.Count == 0) ? DeleteAcategory_btn.Enabled = false : DeleteAcategory_btn.Enabled = true;
-                _ = dataGridViewProhibition.Rows.Count == 0 ? DeleteAprohibition_btn.Enabled = false : DeleteAprohibition_btn.Enabled = true;
+            Categories.Rows.RemoveAt(index);
+            EnableOrDisableButtons();
         }
 
 
         private void AddAnewProhibition_btn_Click(object sender, EventArgs e)
         {
-            Form3 fm3 = new Form3();
+            CategoryProhibitionForm fm3 = new CategoryProhibitionForm();
             fm3.Category.Items.Clear();
             fm3.ISS.Enabled = fm3.EXP.Enabled = true;
 
@@ -161,7 +161,7 @@ namespace DriversPremium
         private void DeleteAprohibition_btn_Click(object sender, EventArgs e)
         {
             int index = Prohibition.CurrentCell.RowIndex;
-            Form1 fm1 = new Form1();
+            ShowDriversForm fm1 = new ShowDriversForm();
 
             if (!fm1.AddClicked)
             {
@@ -176,14 +176,14 @@ namespace DriversPremium
 
         private void Back_btn_Click(object sender, EventArgs e)
         {
-            Form1 fm1 = (Form1)Application.OpenForms["Form1"];
+            ShowDriversForm fm1 = (ShowDriversForm)Application.OpenForms["Form1"];
             Close();
-            fm1.ShowDialog();//ovde brise objekat 
+            fm1.ShowDialog();
         }
 
         private void Create_btn_Click(object sender, EventArgs e)
         {
-                Form1 fm1 = new Form1();
+                ShowDriversForm fm1 = new ShowDriversForm();
             try
             {
                 if (FieldOccupancy())
@@ -231,7 +231,7 @@ namespace DriversPremium
                     }
                     MakeColumns(dt);
 
-                    using (Form3 fm3 = new Form3())
+                    using (CategoryProhibitionForm fm3 = new CategoryProhibitionForm())
                     {
                         fm3.DT1.Rows.Clear();
                         fm3.DT2.Rows.Clear();
@@ -242,6 +242,7 @@ namespace DriversPremium
 
                     _ = (dt.Rows.Count > 0) ? (fm1.DeleteDriverBtn.Enabled = fm1.ChangeDriverBtn.Enabled = true)
                         : (fm1.DeleteDriverBtn.Enabled = fm1.ChangeDriverBtn.Enabled = true);
+
                     this.Close();
                     fm1.Show();
                 }
@@ -263,6 +264,54 @@ namespace DriversPremium
                     break;
             }
         }
+
+        /* DateTimePicker_ValueChanged methods */
+        private void DateTimePickerDateOfBirth_ValueChanged(object sender, EventArgs e)
+        {
+            dateTimePickerISS.MinDate = new DateTime(dateTimePickerDateOfBirth.Value.Year + 17,
+                dateTimePickerDateOfBirth.Value.Month, dateTimePickerDateOfBirth.Value.Day);
+
+            dateTimePickerISS.MaxDate = new DateTime(2021, 1, 1);
+
+            dateTimePickerDateOfBirth.Format = DateTimePickerFormat.Short;
+            dateTimePickerISS.Format = DateTimePickerFormat.Short;
+
+            dateTimePickerISS.Enabled = true;
+        }
+        
+        private void DateTimePickerISS_ValueChanged(object sender, EventArgs e)
+        {
+            AddAnewCategory_btn.Enabled = true;
+            dateTimePickerEXP.MinDate = new DateTime(dateTimePickerISS.Value.Year + 10,
+                dateTimePickerISS.Value.Month, dateTimePickerISS.Value.Day);
+
+            dateTimePickerEXP.Format = DateTimePickerFormat.Custom;
+            dateTimePickerEXP.CustomFormat = dateTimePickerEXP.MinDate.ToShortDateString();
+            dateTimePickerEXP.Value = dateTimePickerEXP.MinDate;
+
+            using (CategoryProhibitionForm fm3 = new CategoryProhibitionForm())
+            {
+                fm3.DT1.Rows.Clear();
+                fm3.DT2.Rows.Clear();
+            }
+            EnableOrDisableButtons();
+        }
+
+        /* KeyPress methods */
+        private void FirstName_txt_KeyPress(object sender, KeyPressEventArgs e) 
+            => e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+
+        private void LastName_txt_KeyPress(object sender, KeyPressEventArgs e) 
+            => e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+       
+        private void NumberOfLicense_txt_KeyPress(object sender, KeyPressEventArgs e)
+            => e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+
+        private void PlaceOfIssue_txt_KeyPress(object sender, KeyPressEventArgs e)
+            => e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+
+
+        /* Auxiliary methods */
         String FirstLetterCapital(String s)
         {
             return char.ToUpper(s[0]) + s.Substring(1);
@@ -284,50 +333,23 @@ namespace DriversPremium
         {
             if (String.IsNullOrEmpty(FirstName.Text) || String.IsNullOrEmpty(LastName) || DriverLicenseNumber.Length < 9
                 || String.IsNullOrEmpty(PlaceOfIssue) || gender_comboBox.SelectedIndex == -1 ||
-                dataGridViewCategories.Rows.Count == 0 || pictureBoxSlikaVozaca.Image == null) 
-            { 
+                dataGridViewCategories.Rows.Count == 0 || pictureBoxSlikaVozaca.Image == null)
+            {
                 MessageBox.Show("Fill in all fields!");
                 return false;
             }
             return true;
         }
 
+        private void EnableOrDisableButtons()
+        {
+            _ = (Categories.Rows.Count == 0) ? (DeleteAcategory_btn.Enabled = false, AddAnewProhibition.Enabled = false)
+            : (DeleteAcategory_btn.Enabled = true, AddAnewProhibition.Enabled = true);
+
+            _ = dataGridViewProhibition.Rows.Count == 0 ? DeleteAprohibition_btn.Enabled = false : DeleteAprohibition_btn.Enabled = true;
+        }
+
         private void MakeColumns(DataTable dt) => _ = (dt.Columns.Count == 0) ? (dt.Columns.Add("First name"), dt.Columns.Add("Last name"),
                dt.Columns.Add("Driver's license number")) : (null, null, null);
-
-        private void FirstName_txt_KeyPress(object sender, KeyPressEventArgs e) 
-            => e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
-
-        private void LastName_txt_KeyPress(object sender, KeyPressEventArgs e) 
-            => e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
-
-        private void DateTimePickerDateOfBirth_ValueChanged(object sender, EventArgs e)
-        {
-            dateTimePickerISS.MinDate = new DateTime(dateTimePickerDateOfBirth.Value.Year + 17,
-                dateTimePickerDateOfBirth.Value.Month, dateTimePickerDateOfBirth.Value.Day);
-
-            dateTimePickerISS.MaxDate = new DateTime(2021, 1, 1);
-
-            dateTimePickerDateOfBirth.Format = DateTimePickerFormat.Short;
-            dateTimePickerISS.Format = DateTimePickerFormat.Short;
-
-            dateTimePickerISS.Enabled = true;
-        }
-
-        private void DateTimePickerISS_ValueChanged(object sender, EventArgs e)
-        {
-            dateTimePickerEXP.MinDate = new DateTime(dateTimePickerISS.Value.Year + 10,
-                dateTimePickerISS.Value.Month, dateTimePickerISS.Value.Day);
-
-            dateTimePickerEXP.Format = DateTimePickerFormat.Custom;
-            dateTimePickerEXP.CustomFormat = dateTimePickerEXP.MinDate.ToShortDateString();
-            dateTimePickerEXP.Value = dateTimePickerEXP.MinDate;       
-        }
-
-        private void NumberOfLicense_txt_KeyPress(object sender, KeyPressEventArgs e)
-            => e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
-
-        private void PlaceOfIssue_txt_KeyPress(object sender, KeyPressEventArgs e)
-            => e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
     }
 }

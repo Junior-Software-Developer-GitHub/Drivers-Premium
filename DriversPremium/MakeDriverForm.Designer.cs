@@ -1,6 +1,6 @@
 ﻿namespace DriversPremium
 {
-    partial class Form2
+    partial class MakeDriverForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MakeDriverForm));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -307,6 +307,7 @@
             // 
             // AddAnewCategory_btn
             // 
+            this.AddAnewCategory_btn.Enabled = false;
             this.AddAnewCategory_btn.Image = global::DriversPremium.Properties.Resources.plus_icon_icons_com_70890;
             this.AddAnewCategory_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.AddAnewCategory_btn.Location = new System.Drawing.Point(5, 113);
@@ -357,6 +358,7 @@
             // 
             // AddAnewProhibition_btn
             // 
+            this.AddAnewProhibition_btn.Enabled = false;
             this.AddAnewProhibition_btn.Image = global::DriversPremium.Properties.Resources.plus_icon_icons_com_70890;
             this.AddAnewProhibition_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.AddAnewProhibition_btn.Location = new System.Drawing.Point(5, 113);

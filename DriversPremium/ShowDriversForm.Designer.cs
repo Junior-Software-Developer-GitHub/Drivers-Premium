@@ -1,6 +1,6 @@
 ﻿namespace DriversPremium
 {
-    partial class Form1
+    partial class ShowDriversForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShowDriversForm));
             this.Sort_btn = new System.Windows.Forms.Button();
             this.ChangeDriver_btn = new System.Windows.Forms.Button();
             this.groupBoxDrivers = new System.Windows.Forms.GroupBox();

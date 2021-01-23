@@ -8,6 +8,7 @@ namespace Persons
 {
     public class Person
     {
+        /* Attributes */
         String _firstName;
         String _lastName;
         String _placeOfIssue;
@@ -19,6 +20,7 @@ namespace Persons
         List<string> _issOfProhibition;
         List<string> _expOfProhibition;
 
+        /* Properties */
         public String FirstName
         {
             get => _firstName;
@@ -69,7 +71,6 @@ namespace Persons
             get => _gender;
             set => _gender = value;
         }
-
         public List<string> Categories
         {
             get => _categories;
@@ -80,13 +81,13 @@ namespace Persons
             get => _prohibition;
             set => _prohibition = value;
         }
-
         public String Picture
         {
             get => _picture;
             set => _picture = value;
         }
 
+        /* Constructor */
         public Person(String firstName, String lastName, DateTime dateOfBirth, DateTime iss, DateTime exp
             , String driverLicenseNumber, String placeOfIssue, String gender, List<string> categories,
             List<string> prohibition, List<string> issOfProhibition, List<string> expOfProhibition, String picture)

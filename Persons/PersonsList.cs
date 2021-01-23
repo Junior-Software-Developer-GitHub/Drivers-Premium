@@ -1,20 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Persons
 {
     public class PersonsList
     {
-
-        readonly List<Person> _personsList;
+        /* Attributes */
+        private readonly List<Person> _personsList;
         private static PersonsList _instance = null;
 
-        public static PersonsList Instance => _instance is null ? _instance = new PersonsList() : _instance;
 
-        private PersonsList() => _personsList = new List<Person>();//Singleton
+        /* Constructor */
+        private PersonsList() => _personsList = new List<Person>(); //Singleton
+
+        /* Methods */
+        public static PersonsList Instance => _instance is null ? _instance = new PersonsList() : _instance;
 
         public bool AddPerson(Person p)
         {
@@ -30,12 +31,9 @@ namespace Persons
             return true;
         }
 
-        public bool Exists(Person p) => (from person in _personsList
-                                         where person.DriverLicenseNumber == p.DriverLicenseNumber
-                                         select person).Any();
+        //Method syntax:
+        public bool Exists(Person p) => _personsList.Where(person => person.DriverLicenseNumber.Equals(p.DriverLicenseNumber)).Any();
 
-        public Person GetPerson(String driverLicenseNumber) => (from person in _personsList
-                                                                where person.DriverLicenseNumber == driverLicenseNumber
-                                                                select person).ToList().FirstOrDefault();
+        public Person GetPerson(String driverLicenseNumber) => _personsList.FirstOrDefault(x => x.DriverLicenseNumber == driverLicenseNumber);
     }
 }

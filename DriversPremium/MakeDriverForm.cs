@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Persons;
 
@@ -18,6 +13,7 @@ namespace DriversPremium
 
         public MakeDriverForm()
         {
+            this.AutoScroll = true;
             InitializeComponent();
             ShowDriversForm fm1 = new ShowDriversForm();
             if (!fm1.AddClicked)
@@ -213,7 +209,7 @@ namespace DriversPremium
 
                         if (!res)
                         {
-                            MessageBox.Show("ERROR");
+                            MessageBox.Show("A driver's license with this number already exists!");
                             return;
                         }
                     }
@@ -351,5 +347,7 @@ namespace DriversPremium
 
         private void MakeColumns(DataTable dt) => _ = (dt.Columns.Count == 0) ? (dt.Columns.Add("First name"), dt.Columns.Add("Last name"),
                dt.Columns.Add("Driver's license number")) : (null, null, null);
+
+
     }
 }

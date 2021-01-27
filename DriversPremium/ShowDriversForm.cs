@@ -60,7 +60,7 @@ namespace DriversPremium
             else
             {
                 string s = comboBoxSort.SelectedItem.ToString();
-                int result = comboBoxSort.SelectedIndex switch
+                _ = comboBoxSort.SelectedIndex switch
                 {
                     0 => Sort(s),
                     1 => Sort(s),

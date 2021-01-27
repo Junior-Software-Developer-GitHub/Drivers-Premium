@@ -72,72 +72,80 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(71, 27);
+            this.label1.Location = new System.Drawing.Point(83, 31);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.Size = new System.Drawing.Size(65, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "First name:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(70, 52);
+            this.label2.Location = new System.Drawing.Point(82, 60);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.Size = new System.Drawing.Size(64, 15);
             this.label2.TabIndex = 1;
             this.label2.Text = "Last name:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(61, 77);
+            this.label3.Location = new System.Drawing.Point(71, 89);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 13);
+            this.label3.Size = new System.Drawing.Size(76, 15);
             this.label3.TabIndex = 2;
             this.label3.Text = "Date of birth:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(101, 102);
+            this.label4.Location = new System.Drawing.Point(118, 118);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(27, 13);
+            this.label4.Size = new System.Drawing.Size(25, 15);
             this.label4.TabIndex = 3;
             this.label4.Text = "ISS:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(96, 127);
+            this.label5.Location = new System.Drawing.Point(112, 147);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(31, 13);
+            this.label5.Size = new System.Drawing.Size(30, 15);
             this.label5.TabIndex = 4;
             this.label5.Text = "EXP:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 152);
+            this.label6.Location = new System.Drawing.Point(4, 175);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(124, 13);
+            this.label6.Size = new System.Drawing.Size(140, 15);
             this.label6.TabIndex = 5;
             this.label6.Text = "Number of driver license:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(51, 177);
+            this.label7.Location = new System.Drawing.Point(59, 204);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(76, 13);
+            this.label7.Size = new System.Drawing.Size(81, 15);
             this.label7.TabIndex = 6;
             this.label7.Text = "Place of issue:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(82, 202);
+            this.label8.Location = new System.Drawing.Point(96, 233);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(45, 13);
+            this.label8.Size = new System.Drawing.Size(48, 15);
             this.label8.TabIndex = 7;
             this.label8.Text = "Gender:";
             // 
@@ -161,18 +169,21 @@
             this.groupBox1.Controls.Add(this.lastName_txt);
             this.groupBox1.Controls.Add(this.firstName_txt);
             this.groupBox1.Controls.Add(this.AddPicture_btn);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(14, 14);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(448, 236);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBox1.Size = new System.Drawing.Size(523, 272);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Personal informations";
             // 
             // pictureBoxSlikaVozaca
             // 
-            this.pictureBoxSlikaVozaca.Location = new System.Drawing.Point(327, 24);
+            this.pictureBoxSlikaVozaca.Location = new System.Drawing.Point(382, 28);
+            this.pictureBoxSlikaVozaca.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pictureBoxSlikaVozaca.Name = "pictureBoxSlikaVozaca";
-            this.pictureBoxSlikaVozaca.Size = new System.Drawing.Size(105, 119);
+            this.pictureBoxSlikaVozaca.Size = new System.Drawing.Size(122, 137);
             this.pictureBoxSlikaVozaca.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxSlikaVozaca.TabIndex = 10;
             this.pictureBoxSlikaVozaca.TabStop = false;
@@ -181,32 +192,35 @@
             // 
             this.dateTimePickerEXP.Enabled = false;
             this.dateTimePickerEXP.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerEXP.Location = new System.Drawing.Point(133, 124);
+            this.dateTimePickerEXP.Location = new System.Drawing.Point(155, 143);
+            this.dateTimePickerEXP.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dateTimePickerEXP.MaxDate = new System.DateTime(3000, 1, 1, 0, 0, 0, 0);
             this.dateTimePickerEXP.Name = "dateTimePickerEXP";
-            this.dateTimePickerEXP.Size = new System.Drawing.Size(100, 20);
+            this.dateTimePickerEXP.Size = new System.Drawing.Size(116, 23);
             this.dateTimePickerEXP.TabIndex = 5;
             // 
             // dateTimePickerISS
             // 
             this.dateTimePickerISS.Enabled = false;
             this.dateTimePickerISS.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerISS.Location = new System.Drawing.Point(133, 99);
+            this.dateTimePickerISS.Location = new System.Drawing.Point(155, 114);
+            this.dateTimePickerISS.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dateTimePickerISS.MaxDate = new System.DateTime(2109, 8, 16, 0, 0, 0, 0);
             this.dateTimePickerISS.MinDate = new System.DateTime(1768, 12, 25, 0, 0, 0, 0);
             this.dateTimePickerISS.Name = "dateTimePickerISS";
-            this.dateTimePickerISS.Size = new System.Drawing.Size(100, 20);
+            this.dateTimePickerISS.Size = new System.Drawing.Size(116, 23);
             this.dateTimePickerISS.TabIndex = 4;
             this.dateTimePickerISS.ValueChanged += new System.EventHandler(this.DateTimePickerISS_ValueChanged);
             // 
             // dateTimePickerDateOfBirth
             // 
             this.dateTimePickerDateOfBirth.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerDateOfBirth.Location = new System.Drawing.Point(133, 74);
+            this.dateTimePickerDateOfBirth.Location = new System.Drawing.Point(155, 85);
+            this.dateTimePickerDateOfBirth.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dateTimePickerDateOfBirth.MaxDate = new System.DateTime(2003, 1, 1, 0, 0, 0, 0);
             this.dateTimePickerDateOfBirth.MinDate = new System.DateTime(1950, 1, 1, 0, 0, 0, 0);
             this.dateTimePickerDateOfBirth.Name = "dateTimePickerDateOfBirth";
-            this.dateTimePickerDateOfBirth.Size = new System.Drawing.Size(100, 20);
+            this.dateTimePickerDateOfBirth.Size = new System.Drawing.Size(116, 23);
             this.dateTimePickerDateOfBirth.TabIndex = 3;
             this.dateTimePickerDateOfBirth.Value = new System.DateTime(1950, 1, 1, 0, 0, 0, 0);
             this.dateTimePickerDateOfBirth.ValueChanged += new System.EventHandler(this.DateTimePickerDateOfBirth_ValueChanged);
@@ -218,51 +232,57 @@
             this.gender_comboBox.Items.AddRange(new object[] {
             "F",
             "M"});
-            this.gender_comboBox.Location = new System.Drawing.Point(133, 199);
+            this.gender_comboBox.Location = new System.Drawing.Point(155, 230);
+            this.gender_comboBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.gender_comboBox.Name = "gender_comboBox";
-            this.gender_comboBox.Size = new System.Drawing.Size(100, 21);
+            this.gender_comboBox.Size = new System.Drawing.Size(116, 23);
             this.gender_comboBox.Sorted = true;
             this.gender_comboBox.TabIndex = 8;
             // 
             // placeOfIssue_txt
             // 
-            this.placeOfIssue_txt.Location = new System.Drawing.Point(133, 174);
+            this.placeOfIssue_txt.Location = new System.Drawing.Point(155, 201);
+            this.placeOfIssue_txt.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.placeOfIssue_txt.Name = "placeOfIssue_txt";
-            this.placeOfIssue_txt.Size = new System.Drawing.Size(100, 20);
+            this.placeOfIssue_txt.Size = new System.Drawing.Size(116, 23);
             this.placeOfIssue_txt.TabIndex = 7;
             this.placeOfIssue_txt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PlaceOfIssue_txt_KeyPress);
             // 
             // numberOfLicense_txt
             // 
-            this.numberOfLicense_txt.Location = new System.Drawing.Point(133, 149);
+            this.numberOfLicense_txt.Location = new System.Drawing.Point(155, 172);
+            this.numberOfLicense_txt.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.numberOfLicense_txt.MaxLength = 9;
             this.numberOfLicense_txt.Name = "numberOfLicense_txt";
-            this.numberOfLicense_txt.Size = new System.Drawing.Size(100, 20);
+            this.numberOfLicense_txt.Size = new System.Drawing.Size(116, 23);
             this.numberOfLicense_txt.TabIndex = 6;
             this.toolTip1.SetToolTip(this.numberOfLicense_txt, "Nine digits");
             this.numberOfLicense_txt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumberOfLicense_txt_KeyPress);
             // 
             // lastName_txt
             // 
-            this.lastName_txt.Location = new System.Drawing.Point(133, 49);
+            this.lastName_txt.Location = new System.Drawing.Point(155, 57);
+            this.lastName_txt.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.lastName_txt.Name = "lastName_txt";
-            this.lastName_txt.Size = new System.Drawing.Size(100, 20);
+            this.lastName_txt.Size = new System.Drawing.Size(116, 23);
             this.lastName_txt.TabIndex = 2;
             this.lastName_txt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LastName_txt_KeyPress);
             // 
             // firstName_txt
             // 
-            this.firstName_txt.Location = new System.Drawing.Point(133, 24);
+            this.firstName_txt.Location = new System.Drawing.Point(155, 28);
+            this.firstName_txt.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.firstName_txt.Name = "firstName_txt";
-            this.firstName_txt.Size = new System.Drawing.Size(100, 20);
+            this.firstName_txt.Size = new System.Drawing.Size(116, 23);
             this.firstName_txt.TabIndex = 1;
             this.firstName_txt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FirstName_txt_KeyPress);
             // 
             // AddPicture_btn
             // 
-            this.AddPicture_btn.Location = new System.Drawing.Point(327, 152);
+            this.AddPicture_btn.Location = new System.Drawing.Point(382, 175);
+            this.AddPicture_btn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.AddPicture_btn.Name = "AddPicture_btn";
-            this.AddPicture_btn.Size = new System.Drawing.Size(105, 23);
+            this.AddPicture_btn.Size = new System.Drawing.Size(122, 27);
             this.AddPicture_btn.TabIndex = 9;
             this.AddPicture_btn.Text = "Add a picture";
             this.AddPicture_btn.UseVisualStyleBackColor = true;
@@ -273,9 +293,11 @@
             this.groupBox2.Controls.Add(this.dataGridViewCategories);
             this.groupBox2.Controls.Add(this.DeleteAcategory_btn);
             this.groupBox2.Controls.Add(this.AddAnewCategory_btn);
-            this.groupBox2.Location = new System.Drawing.Point(13, 253);
+            this.groupBox2.Location = new System.Drawing.Point(15, 292);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(446, 165);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBox2.Size = new System.Drawing.Size(520, 172);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Categories";
@@ -285,20 +307,21 @@
             this.dataGridViewCategories.AllowUserToAddRows = false;
             this.dataGridViewCategories.AllowUserToDeleteRows = false;
             this.dataGridViewCategories.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewCategories.Location = new System.Drawing.Point(6, 19);
+            this.dataGridViewCategories.Location = new System.Drawing.Point(7, 22);
+            this.dataGridViewCategories.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridViewCategories.Name = "dataGridViewCategories";
             this.dataGridViewCategories.ReadOnly = true;
-            this.dataGridViewCategories.Size = new System.Drawing.Size(434, 88);
+            this.dataGridViewCategories.Size = new System.Drawing.Size(506, 102);
             this.dataGridViewCategories.TabIndex = 0;
             // 
             // DeleteAcategory_btn
             // 
             this.DeleteAcategory_btn.Enabled = false;
-            this.DeleteAcategory_btn.Image = global::DriversPremium.Properties.Resources.seo_social_web_network_internet_262_icon_icons_com_61518;
             this.DeleteAcategory_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.DeleteAcategory_btn.Location = new System.Drawing.Point(302, 116);
+            this.DeleteAcategory_btn.Location = new System.Drawing.Point(378, 130);
+            this.DeleteAcategory_btn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.DeleteAcategory_btn.Name = "DeleteAcategory_btn";
-            this.DeleteAcategory_btn.Size = new System.Drawing.Size(138, 46);
+            this.DeleteAcategory_btn.Size = new System.Drawing.Size(135, 37);
             this.DeleteAcategory_btn.TabIndex = 2;
             this.DeleteAcategory_btn.Text = "Delete a category";
             this.DeleteAcategory_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -308,11 +331,10 @@
             // AddAnewCategory_btn
             // 
             this.AddAnewCategory_btn.Enabled = false;
-            this.AddAnewCategory_btn.Image = global::DriversPremium.Properties.Resources.plus_icon_icons_com_70890;
-            this.AddAnewCategory_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AddAnewCategory_btn.Location = new System.Drawing.Point(5, 113);
+            this.AddAnewCategory_btn.Location = new System.Drawing.Point(6, 130);
+            this.AddAnewCategory_btn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.AddAnewCategory_btn.Name = "AddAnewCategory_btn";
-            this.AddAnewCategory_btn.Size = new System.Drawing.Size(121, 46);
+            this.AddAnewCategory_btn.Size = new System.Drawing.Size(135, 37);
             this.AddAnewCategory_btn.TabIndex = 1;
             this.AddAnewCategory_btn.Text = "Add a new category";
             this.AddAnewCategory_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -324,9 +346,11 @@
             this.groupBox3.Controls.Add(this.dataGridViewProhibition);
             this.groupBox3.Controls.Add(this.DeleteAprohibition_btn);
             this.groupBox3.Controls.Add(this.AddAnewProhibition_btn);
-            this.groupBox3.Location = new System.Drawing.Point(13, 424);
+            this.groupBox3.Location = new System.Drawing.Point(13, 470);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(446, 165);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBox3.Size = new System.Drawing.Size(520, 173);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Driving ban";
@@ -336,20 +360,21 @@
             this.dataGridViewProhibition.AllowUserToAddRows = false;
             this.dataGridViewProhibition.AllowUserToDeleteRows = false;
             this.dataGridViewProhibition.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewProhibition.Location = new System.Drawing.Point(6, 19);
+            this.dataGridViewProhibition.Location = new System.Drawing.Point(7, 22);
+            this.dataGridViewProhibition.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridViewProhibition.Name = "dataGridViewProhibition";
             this.dataGridViewProhibition.ReadOnly = true;
-            this.dataGridViewProhibition.Size = new System.Drawing.Size(434, 88);
+            this.dataGridViewProhibition.Size = new System.Drawing.Size(506, 102);
             this.dataGridViewProhibition.TabIndex = 0;
             // 
             // DeleteAprohibition_btn
             // 
             this.DeleteAprohibition_btn.Enabled = false;
-            this.DeleteAprohibition_btn.Image = global::DriversPremium.Properties.Resources.seo_social_web_network_internet_262_icon_icons_com_61518;
             this.DeleteAprohibition_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.DeleteAprohibition_btn.Location = new System.Drawing.Point(302, 113);
+            this.DeleteAprohibition_btn.Location = new System.Drawing.Point(378, 130);
+            this.DeleteAprohibition_btn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.DeleteAprohibition_btn.Name = "DeleteAprohibition_btn";
-            this.DeleteAprohibition_btn.Size = new System.Drawing.Size(138, 46);
+            this.DeleteAprohibition_btn.Size = new System.Drawing.Size(135, 37);
             this.DeleteAprohibition_btn.TabIndex = 2;
             this.DeleteAprohibition_btn.Text = "Delete a prohibition";
             this.DeleteAprohibition_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -359,11 +384,11 @@
             // AddAnewProhibition_btn
             // 
             this.AddAnewProhibition_btn.Enabled = false;
-            this.AddAnewProhibition_btn.Image = global::DriversPremium.Properties.Resources.plus_icon_icons_com_70890;
             this.AddAnewProhibition_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AddAnewProhibition_btn.Location = new System.Drawing.Point(5, 113);
+            this.AddAnewProhibition_btn.Location = new System.Drawing.Point(5, 130);
+            this.AddAnewProhibition_btn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.AddAnewProhibition_btn.Name = "AddAnewProhibition_btn";
-            this.AddAnewProhibition_btn.Size = new System.Drawing.Size(121, 46);
+            this.AddAnewProhibition_btn.Size = new System.Drawing.Size(135, 37);
             this.AddAnewProhibition_btn.TabIndex = 1;
             this.AddAnewProhibition_btn.Text = "Add a new prohibition";
             this.AddAnewProhibition_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -372,10 +397,11 @@
             // 
             // Create_btn
             // 
-            this.Create_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Create_btn.Location = new System.Drawing.Point(134, 595);
+            this.Create_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Create_btn.Location = new System.Drawing.Point(151, 649);
+            this.Create_btn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Create_btn.Name = "Create_btn";
-            this.Create_btn.Size = new System.Drawing.Size(88, 35);
+            this.Create_btn.Size = new System.Drawing.Size(88, 33);
             this.Create_btn.TabIndex = 3;
             this.Create_btn.Text = "Create";
             this.Create_btn.UseVisualStyleBackColor = true;
@@ -383,10 +409,11 @@
             // 
             // Close_btn
             // 
-            this.Close_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Close_btn.Location = new System.Drawing.Point(238, 595);
+            this.Close_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Close_btn.Location = new System.Drawing.Point(305, 649);
+            this.Close_btn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Close_btn.Name = "Close_btn";
-            this.Close_btn.Size = new System.Drawing.Size(88, 35);
+            this.Close_btn.Size = new System.Drawing.Size(88, 33);
             this.Close_btn.TabIndex = 4;
             this.Close_btn.Text = "Close";
             this.Close_btn.UseVisualStyleBackColor = true;
@@ -396,11 +423,11 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // Form2
+            // MakeDriverForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(472, 642);
+            this.ClientSize = new System.Drawing.Size(550, 471);
             this.Controls.Add(this.Close_btn);
             this.Controls.Add(this.Create_btn);
             this.Controls.Add(this.groupBox3);
@@ -408,8 +435,9 @@
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.MaximizeBox = false;
-            this.Name = "Form2";
+            this.Name = "MakeDriverForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

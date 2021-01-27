@@ -53,7 +53,7 @@ namespace DriversPremium
             try
             {
                 this.Hide();
-                MakeDriverForm fm2 = (MakeDriverForm)Application.OpenForms["Form2"];
+                MakeDriverForm fm2 = (MakeDriverForm)Application.OpenForms["MakeDriverForm"];
                 fm2.AddAnewCategory.Enabled = fm2.AddAnewProhibition.Enabled = true;
 
                 if (comboBoxCategory.SelectedItem != null)

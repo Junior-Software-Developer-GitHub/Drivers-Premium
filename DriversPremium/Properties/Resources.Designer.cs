@@ -73,6 +73,16 @@ namespace DriversPremium.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap billGates {
+            get {
+                object obj = ResourceManager.GetObject("billGates", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap plus_icon_icons_com_70890 {
             get {
                 object obj = ResourceManager.GetObject("plus_icon-icons.com_70890", resourceCulture);
@@ -86,6 +96,16 @@ namespace DriversPremium.Properties {
         internal static System.Drawing.Bitmap seo_social_web_network_internet_262_icon_icons_com_61518 {
             get {
                 object obj = ResourceManager.GetObject("seo-social-web-network-internet_262_icon-icons.com_61518", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap steveJobs {
+            get {
+                object obj = ResourceManager.GetObject("steveJobs", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

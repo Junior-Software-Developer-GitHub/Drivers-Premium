@@ -49,6 +49,7 @@ namespace DriversPremium
         {
             MakeDriverForm fm2 = new MakeDriverForm();
             fm2.DriverLicenseNumberTextBox.Enabled = true;
+            fm2.AddAnewCategory.Enabled = true;  
             addClicked = true;
             this.Hide();
             fm2.Show();
@@ -83,9 +84,9 @@ namespace DriversPremium
         {
             addClicked = false;
             int rowIndex = dataGridViewList.CurrentCell.RowIndex;
-            LoadData(PersonsList.Instance.GetPerson(GetLicense())); //load personal data into Form2
+            LoadData(PersonsList.Instance.GetPerson(GetLicense())); //load personal data into MakeDriversForm
             dataGridViewList.Rows.RemoveAt(rowIndex);
-
+            
             this.Hide();
         }
 
@@ -103,7 +104,6 @@ namespace DriversPremium
             MakeDriverForm fm2 = new MakeDriverForm();
             fm2.DriverLicenseNumberTextBox.Enabled = false;
             fm2.DeleteCategory.Enabled = true;
-
             _ = (dt.Columns.Count == 0) ? (dt.Columns.Add("Category"), dt.Columns.Add("ISS"),
                 dt.Columns.Add("EXP")) : (null, null, null);
 
@@ -137,6 +137,8 @@ namespace DriversPremium
                         p.ExpOfProhibition.ElementAtOrDefault(i));
             }
             this.Hide();
+            fm2.AddAnewProhibition.Enabled = true;
+            fm2.DeleteCategory.Enabled = true;
             fm2.Show();
         }
 

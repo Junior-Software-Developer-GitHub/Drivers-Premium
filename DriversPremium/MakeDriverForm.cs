@@ -233,7 +233,6 @@ namespace DriversPremium
                         fm3.DT2.Rows.Clear();
                     }
                     dt.Rows.Add(FirstLetterCapital(FirstName.Text), FirstLetterCapital(LastName), DriverLicenseNumber);
-
                     fm1.DTGview.DataSource = dt;
 
                     _ = (dt.Rows.Count > 0) ? (fm1.DeleteDriverBtn.Enabled = fm1.ChangeDriverBtn.Enabled = true)

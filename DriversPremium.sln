@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DriversPremium", "DriversPr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persons", "Persons\Persons.csproj", "{88C38F11-0D3C-44C9-8A09-B93CE0C80A43}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{3BD617F3-D835-4B61-A475-B8F766BC7E95}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Installation", "Installation\Installation.vdproj", "{205AC90F-ADC2-4CE5-9B28-F285F20ABE25}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,8 +23,8 @@ Global
 		{88C38F11-0D3C-44C9-8A09-B93CE0C80A43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88C38F11-0D3C-44C9-8A09-B93CE0C80A43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88C38F11-0D3C-44C9-8A09-B93CE0C80A43}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3BD617F3-D835-4B61-A475-B8F766BC7E95}.Debug|Any CPU.ActiveCfg = Debug
-		{3BD617F3-D835-4B61-A475-B8F766BC7E95}.Release|Any CPU.ActiveCfg = Release
+		{205AC90F-ADC2-4CE5-9B28-F285F20ABE25}.Debug|Any CPU.ActiveCfg = Debug
+		{205AC90F-ADC2-4CE5-9B28-F285F20ABE25}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

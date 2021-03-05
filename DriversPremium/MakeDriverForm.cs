@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Persons;
-using Emgu.CV;
+﻿using Emgu.CV;
 using Emgu.CV.Structure;
+using Persons;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Windows.Forms;
 
 namespace DriversPremium
 {
@@ -31,7 +26,7 @@ namespace DriversPremium
                 dateTimePickerISS.CustomFormat = " ";
                 dateTimePickerEXP.Format = DateTimePickerFormat.Custom;
                 dateTimePickerEXP.CustomFormat = " ";
-            }      
+            }
         }
 
         /* Properties */
@@ -85,9 +80,9 @@ namespace DriversPremium
             get => pictureBoxDriversPicture;
             set => pictureBoxDriversPicture = value;
         }
-        
+
         public DataGridView Categories => dataGridViewCategories;
-        
+
         public DataGridView Prohibition => dataGridViewProhibition;
 
         public Button DeleteCategory
@@ -160,13 +155,13 @@ namespace DriversPremium
         private void DeleteAcategory_btn_Click(object sender, EventArgs e)
         {
             int index = Categories.CurrentCell.RowIndex;
-       
-                for (int i = 0; i < Prohibition.Rows.Count; i++)
-                {
-                    if (Prohibition.Rows[i].Cells[0].Value.ToString() == Categories.Rows[index].Cells[0].Value.ToString())
-                        Prohibition.Rows.RemoveAt(i);
-                }
-                
+
+            for (int i = 0; i < Prohibition.Rows.Count; i++)
+            {
+                if (Prohibition.Rows[i].Cells[0].Value.ToString() == Categories.Rows[index].Cells[0].Value.ToString())
+                    Prohibition.Rows.RemoveAt(i);
+            }
+
             Categories.Rows.RemoveAt(index);
             EnableOrDisableButtons();
         }
@@ -281,7 +276,7 @@ namespace DriversPremium
                     fm1.Show();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Exception: " + ex);
             }
@@ -312,7 +307,7 @@ namespace DriversPremium
 
             dateTimePickerISS.Enabled = true;
         }
-        
+
         private void DateTimePickerISS_ValueChanged(object sender, EventArgs e)
         {
             AddAnewCategory_btn.Enabled = true;
@@ -332,16 +327,16 @@ namespace DriversPremium
         }
 
         /* KeyPress methods */
-        private void FirstName_txt_KeyPress(object sender, KeyPressEventArgs e) 
+        private void FirstName_txt_KeyPress(object sender, KeyPressEventArgs e)
             => e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
 
-        private void LastName_txt_KeyPress(object sender, KeyPressEventArgs e) 
+        private void LastName_txt_KeyPress(object sender, KeyPressEventArgs e)
             => e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
 
         private void NumberOfLicense_txt_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
-            _ = numberOfLicense_txt.Text.Length > 8 ? AddPicture_btn.Visible = true : AddPicture_btn.Visible = false;
+            _ = numberOfLicense_txt.Text.Length > 7 ? AddPicture_btn.Visible = true : AddPicture_btn.Visible = false;
         }
 
         private void PlaceOfIssue_txt_KeyPress(object sender, KeyPressEventArgs e)

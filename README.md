@@ -5,7 +5,7 @@ Drivers Premium is an open source application made in .NET Core 3.0 that simulat
 
 # ⚠️Requirements
 .NET Core 3.0 => https://dotnet.microsoft.com/download/dotnet-core/3.0
-
-# ✔️Installation
-![installationGif](https://user-images.githubusercontent.com/68865498/108505328-7ad08680-72b7-11eb-86d5-088011721656.gif)
+Visual Studio => https://visualstudio.microsoft.com/downloads/
+# ✔️How to downolaod?
+![downoloadGif](https://user-images.githubusercontent.com/68865498/110165524-56b29080-7df3-11eb-9560-d97e1daef294.gif)
 

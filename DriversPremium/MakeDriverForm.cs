@@ -1,8 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Persons;
+using Emgu.CV;
+using Emgu.CV.Structure;
 
 namespace DriversPremium
 {
@@ -10,7 +17,9 @@ namespace DriversPremium
     {
         /* Attribute */
         private static readonly DataTable dt = new DataTable();
-
+        Capture capture;
+        private string pictureSource;
+        private Person p;
         public MakeDriverForm()
         {
             this.AutoScroll = true;
@@ -73,8 +82,8 @@ namespace DriversPremium
         }
         public PictureBox PictureOfDriver
         {
-            get => pictureBoxSlikaVozaca;
-            set => pictureBoxSlikaVozaca = value;
+            get => pictureBoxDriversPicture;
+            set => pictureBoxDriversPicture = value;
         }
         
         public DataGridView Categories => dataGridViewCategories;
@@ -105,8 +114,38 @@ namespace DriversPremium
         /* ButtonClick methods */
         private void AddPicture_btn_Click(object sender, EventArgs e)
         {
-            openFileDialog1.ShowDialog();
-            pictureBoxSlikaVozaca.ImageLocation = openFileDialog1.FileName;
+            MessageBoxButtons msgb = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show("Whether there is an image in the database?", "Picture", msgb);
+            if (result.Equals(DialogResult.Yes))
+            {
+                openFileDialog1.ShowDialog();
+                pictureBoxDriversPicture.ImageLocation = openFileDialog1.FileName;
+                pictureSource = pictureBoxDriversPicture.ImageLocation;
+            }
+            else //Open camera
+            {
+                TakeImg_btn.Visible = true;
+                if (capture == null)
+                {
+                    capture = new Emgu.CV.Capture();
+                }
+                capture.ImageGrabbed += Capture_ImageGrabbed;
+                capture.Start();
+            }
+        }
+
+        private void TakeImg_btn_Click(object sender, EventArgs e)
+        {
+            if (capture != null)
+            {
+                pictureBox1.Image = pictureBoxDriversPicture.Image;
+                pictureBoxDriversPicture.Visible = false;
+                pictureBox1.Visible = true;
+
+                pictureBoxDriversPicture.Image.Save($@"C:\C#\Drivers Premium\DriversPremium\Resources\{numberOfLicense_txt.Text}");
+                pictureSource = $@"C:\C#\Drivers Premium\DriversPremium\Resources\{numberOfLicense_txt.Text}";
+                capture.Stop();
+            }
         }
 
         private void AddAnewCategory_btn_Click(object sender, EventArgs e)
@@ -172,14 +211,14 @@ namespace DriversPremium
 
         private void Back_btn_Click(object sender, EventArgs e)
         {
-            ShowDriversForm fm1 = (ShowDriversForm)Application.OpenForms["Form1"];
+            ShowDriversForm fm1 = (ShowDriversForm)Application.OpenForms["ShowDriversForm"];
             Close();
             fm1.ShowDialog();
         }
 
         private void Create_btn_Click(object sender, EventArgs e)
         {
-                ShowDriversForm fm1 = new ShowDriversForm();
+            ShowDriversForm fm1 = new ShowDriversForm();
             try
             {
                 if (FieldOccupancy())
@@ -205,7 +244,7 @@ namespace DriversPremium
                     {
                         res = PersonsList.Instance.AddPerson(new Person(FirstLetterCapital(firstName_txt.Text), FirstLetterCapital(lastName_txt.Text), dateTimePickerDateOfBirth.Value
                             , dateTimePickerISS.Value, dateTimePickerEXP.Value, numberOfLicense_txt.Text, placeOfIssue_txt.Text,
-                            gender_comboBox.SelectedItem.ToString(), categories, prohibitions, prohibitionsISS, prohibitionsEXP, openFileDialog1.FileName));
+                            gender_comboBox.SelectedItem.ToString(), categories, prohibitions, prohibitionsISS, prohibitionsEXP, pictureSource));
 
                         if (!res)
                         {
@@ -215,7 +254,7 @@ namespace DriversPremium
                     }
                     else
                     {
-                        Person p = PersonsList.Instance.GetPerson(DriverLicenseNumber);
+                        p = PersonsList.Instance.GetPerson(DriverLicenseNumber);
                         PersonsList.Instance.DeletePerson(p);
 
                         p = new Person(FirstLetterCapital(firstName_txt.Text), FirstLetterCapital(lastName_txt.Text), dateTimePickerDateOfBirth.Value
@@ -298,9 +337,12 @@ namespace DriversPremium
 
         private void LastName_txt_KeyPress(object sender, KeyPressEventArgs e) 
             => e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
-       
+
         private void NumberOfLicense_txt_KeyPress(object sender, KeyPressEventArgs e)
-            => e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            _ = numberOfLicense_txt.Text.Length > 8 ? AddPicture_btn.Visible = true : AddPicture_btn.Visible = false;
+        }
 
         private void PlaceOfIssue_txt_KeyPress(object sender, KeyPressEventArgs e)
             => e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
@@ -309,7 +351,7 @@ namespace DriversPremium
         /* Auxiliary methods */
         String FirstLetterCapital(String s)
         {
-            return char.ToUpper(s[0]) + s.Substring(1);
+            return char.ToUpper(s[0]) + s[1..];
         }
 
         public void DeleteDuplicates(Person p)
@@ -328,7 +370,7 @@ namespace DriversPremium
         {
             if (String.IsNullOrEmpty(FirstName.Text) || String.IsNullOrEmpty(LastName) || DriverLicenseNumber.Length < 9
                 || String.IsNullOrEmpty(PlaceOfIssue) || gender_comboBox.SelectedIndex == -1 ||
-                dataGridViewCategories.Rows.Count == 0 || pictureBoxSlikaVozaca.Image == null)
+                dataGridViewCategories.Rows.Count == 0 || pictureBoxDriversPicture.Image == null)
             {
                 MessageBox.Show("Fill in all fields!");
                 return false;
@@ -347,6 +389,19 @@ namespace DriversPremium
         private void MakeColumns(DataTable dt) => _ = (dt.Columns.Count == 0) ? (dt.Columns.Add("First name"), dt.Columns.Add("Last name"),
                dt.Columns.Add("Driver's license number")) : (null, null, null);
 
+        private void Capture_ImageGrabbed(object sender, EventArgs e)
+        {
+            try
+            {
+                Mat m = new Mat();
+                capture.Retrieve(m);
+                pictureBoxDriversPicture.Image = m.ToImage<Bgr, byte>().Bitmap;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Exception: " + ex);
+            }
+        }
 
     }
 }

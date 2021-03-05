@@ -39,7 +39,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pictureBoxSlikaVozaca = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.TakeImg_btn = new System.Windows.Forms.Button();
+            this.pictureBoxDriversPicture = new System.Windows.Forms.PictureBox();
             this.dateTimePickerEXP = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerISS = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerDateOfBirth = new System.Windows.Forms.DateTimePicker();
@@ -62,7 +64,8 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSlikaVozaca)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDriversPicture)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCategories)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -151,6 +154,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.pictureBox1);
+            this.groupBox1.Controls.Add(this.TakeImg_btn);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label2);
@@ -159,7 +164,7 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.pictureBoxSlikaVozaca);
+            this.groupBox1.Controls.Add(this.pictureBoxDriversPicture);
             this.groupBox1.Controls.Add(this.dateTimePickerEXP);
             this.groupBox1.Controls.Add(this.dateTimePickerISS);
             this.groupBox1.Controls.Add(this.dateTimePickerDateOfBirth);
@@ -178,15 +183,37 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Personal informations";
             // 
-            // pictureBoxSlikaVozaca
+            // pictureBox1
             // 
-            this.pictureBoxSlikaVozaca.Location = new System.Drawing.Point(382, 28);
-            this.pictureBoxSlikaVozaca.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.pictureBoxSlikaVozaca.Name = "pictureBoxSlikaVozaca";
-            this.pictureBoxSlikaVozaca.Size = new System.Drawing.Size(122, 137);
-            this.pictureBoxSlikaVozaca.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxSlikaVozaca.TabIndex = 10;
-            this.pictureBoxSlikaVozaca.TabStop = false;
+            this.pictureBox1.Location = new System.Drawing.Point(382, 29);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(122, 137);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Visible = false;
+            // 
+            // TakeImg_btn
+            // 
+            this.TakeImg_btn.Location = new System.Drawing.Point(408, 219);
+            this.TakeImg_btn.Name = "TakeImg_btn";
+            this.TakeImg_btn.Size = new System.Drawing.Size(75, 23);
+            this.TakeImg_btn.TabIndex = 11;
+            this.TakeImg_btn.Text = "Take image";
+            this.TakeImg_btn.UseVisualStyleBackColor = true;
+            this.TakeImg_btn.Visible = false;
+            this.TakeImg_btn.Click += new System.EventHandler(this.TakeImg_btn_Click);
+            // 
+            // pictureBoxDriversPicture
+            // 
+            this.pictureBoxDriversPicture.Location = new System.Drawing.Point(382, 28);
+            this.pictureBoxDriversPicture.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.pictureBoxDriversPicture.Name = "pictureBoxDriversPicture";
+            this.pictureBoxDriversPicture.Size = new System.Drawing.Size(122, 137);
+            this.pictureBoxDriversPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxDriversPicture.TabIndex = 10;
+            this.pictureBoxDriversPicture.TabStop = false;
             // 
             // dateTimePickerEXP
             // 
@@ -286,6 +313,7 @@
             this.AddPicture_btn.TabIndex = 9;
             this.AddPicture_btn.Text = "Add a picture";
             this.AddPicture_btn.UseVisualStyleBackColor = true;
+            this.AddPicture_btn.Visible = false;
             this.AddPicture_btn.Click += new System.EventHandler(this.AddPicture_btn_Click);
             // 
             // groupBox2
@@ -427,7 +455,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(550, 471);
+            this.ClientSize = new System.Drawing.Size(563, 471);
             this.Controls.Add(this.Close_btn);
             this.Controls.Add(this.Create_btn);
             this.Controls.Add(this.groupBox3);
@@ -441,7 +469,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSlikaVozaca)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDriversPicture)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCategories)).EndInit();
             this.groupBox3.ResumeLayout(false);
@@ -475,7 +504,7 @@
         public System.Windows.Forms.Button Create_btn;
         public System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.TextBox numberOfLicense_txt;
-        private System.Windows.Forms.PictureBox pictureBoxSlikaVozaca;
+        private System.Windows.Forms.PictureBox pictureBoxDriversPicture;
         private System.Windows.Forms.DataGridView dataGridViewCategories;
         private System.Windows.Forms.DataGridView dataGridViewProhibition;
         private System.Windows.Forms.Button AddAnewCategory_btn;
@@ -483,5 +512,7 @@
         private System.Windows.Forms.Button DeleteAprohibition_btn;
         private System.Windows.Forms.Button AddAnewProhibition_btn;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button TakeImg_btn;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

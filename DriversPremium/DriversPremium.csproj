@@ -30,16 +30,16 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Update="cvextern.dll">
+    <None Update="DLLs\cvextern.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="msvcp120.dll">
+    <None Update="DLLs\msvcp120.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="msvcr120.dll">
+    <None Update="DLLs\msvcr120.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="opencv_ffmpeg310_64.dll">
+    <None Update="DLLs\opencv_ffmpeg310_64.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

@@ -1,4 +1,5 @@
-﻿using Emgu.CV;
+﻿using DriversPremium.Forms.Interfaces;
+using Emgu.CV;
 using Emgu.CV.Structure;
 using Persons;
 using System;
@@ -8,7 +9,7 @@ using System.Windows.Forms;
 
 namespace DriversPremium
 {
-    public partial class MakeDriverForm : Form
+    public partial class MakeDriverForm : Form, IMakeDriver
     {
         /* Attribute */
         private static readonly DataTable dt = new DataTable();
@@ -129,7 +130,7 @@ namespace DriversPremium
             }
         }
 
-        private void TakeImg_btn_Click(object sender, EventArgs e)
+        private void TakeImg_btn_Click(object sender, EventArgs e)//Take an image, save and name it as a license number
         {
             if (capture != null)
             {
@@ -343,8 +344,8 @@ namespace DriversPremium
             => e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
 
 
-        /* Auxiliary methods */
-        String FirstLetterCapital(String s)
+        /* Helpers */
+        public String FirstLetterCapital(String s)
         {
             return char.ToUpper(s[0]) + s[1..];
         }
@@ -361,7 +362,7 @@ namespace DriversPremium
                     p.Prohibition.Remove(v1);
         }
 
-        private bool FieldOccupancy()
+        public bool FieldOccupancy()
         {
             if (String.IsNullOrEmpty(FirstName.Text) || String.IsNullOrEmpty(LastName) || DriverLicenseNumber.Length < 9
                 || String.IsNullOrEmpty(PlaceOfIssue) || gender_comboBox.SelectedIndex == -1 ||
@@ -373,7 +374,7 @@ namespace DriversPremium
             return true;
         }
 
-        private void EnableOrDisableButtons()
+        public void EnableOrDisableButtons()
         {
             _ = (Categories.Rows.Count == 0) ? (DeleteAcategory_btn.Enabled = false, AddAnewProhibition.Enabled = false)
             : (DeleteAcategory_btn.Enabled = true, AddAnewProhibition.Enabled = true);
@@ -381,10 +382,10 @@ namespace DriversPremium
             _ = dataGridViewProhibition.Rows.Count == 0 ? DeleteAprohibition_btn.Enabled = false : DeleteAprohibition_btn.Enabled = true;
         }
 
-        private void MakeColumns(DataTable dt) => _ = (dt.Columns.Count == 0) ? (dt.Columns.Add("First name"), dt.Columns.Add("Last name"),
+        public void MakeColumns(DataTable dt) => _ = (dt.Columns.Count == 0) ? (dt.Columns.Add("First name"), dt.Columns.Add("Last name"),
                dt.Columns.Add("Driver's license number")) : (null, null, null);
 
-        private void Capture_ImageGrabbed(object sender, EventArgs e)
+        public void Capture_ImageGrabbed(object sender, EventArgs e)
         {
             try
             {

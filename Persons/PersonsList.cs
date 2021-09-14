@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Persons.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Persons
 {
-    public class PersonsList
+    public class PersonsList : IPersonList
     {
         /* Attributes */
         private readonly List<Person> _personsList;

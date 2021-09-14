@@ -5,11 +5,12 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Linq;
 using Persons;
+using DriversPremium.Forms.Interfaces;
 
 namespace DriversPremium
 {
 
-    public partial class ShowDriversForm : Form
+    public partial class ShowDriversForm : Form, IShowDriver
     {
         /* Attributes */
         private static bool addClicked;
@@ -32,9 +33,10 @@ namespace DriversPremium
             set => dataGridViewList = value;
         }
 
-        public Button ChangeDriverBtn => ChangeDriver_btn; //getter
+        /* Getters */
+        public Button ChangeDriverBtn => ChangeDriver_btn;
 
-        public Button DeleteDriverBtn => DeleteDriver_btn; //getter
+        public Button DeleteDriverBtn => DeleteDriver_btn;
 
         /* TimerTick method */
         private void TimerTime_Tick(object sender, EventArgs e)
@@ -90,8 +92,8 @@ namespace DriversPremium
             this.Hide();
         }
 
-        /* Auxiliary methods */
-        private int Sort(string s)
+        /* Helpers(implementd from interface) */
+        public int Sort(string s)
         {
             dataGridViewList.Sort(this.dataGridViewList.Columns[s], ListSortDirection.Ascending);
             return 0;

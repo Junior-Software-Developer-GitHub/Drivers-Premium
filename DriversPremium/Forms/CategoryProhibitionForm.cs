@@ -1,11 +1,11 @@
-﻿using System;
+﻿using DriversPremium.Forms;
+using System;
 using System.Data;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace DriversPremium
 {
-    public partial class CategoryProhibitionForm : Form
+    public partial class CategoryProhibitionForm : Form, ICategoryProhibition
     { 
         /* Attributes */
         private static DataTable dt1 = new DataTable();
@@ -93,8 +93,8 @@ namespace DriversPremium
              Close();
         }
 
-        /* Auxiliary method */
-        private void MakeColumns(DataTable dt) => _ = (dt.Columns.Count == 0) ? (dt.Columns.Add("Category"), dt.Columns.Add("ISS"),
+        /* Helpers */
+        public void MakeColumns(DataTable dt) => _ = (dt.Columns.Count == 0) ? (dt.Columns.Add("Category"), dt.Columns.Add("ISS"),
                   dt.Columns.Add("EXP")) : (null, null, null);
     }
 }
